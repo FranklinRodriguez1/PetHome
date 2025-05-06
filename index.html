@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/styles.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"> 
+  <link rel="shortcut icon" href="resource/cat.png" type="image/x-icon">
+  
+  <title>PetHome</title>
+</head>
+<body>
+    <div class="general"> 
+      <header class="header"> <!--inicio del header-->
+          <a href="" class="name">PetHome<img src="resource/patas.png" alt="" style="height:30px;"></a> 
+          <nav class="menu"> 
+            <ul class="listAccess"> 
+              <li class="accessMenu">Tienda</li>
+              <li class="accessMenu">adopcion</li>
+              <li class="accessMenu">Veterinario</li>
+              <li class="accessMenu">Contacto</li> 
+              <li class="shopCar"><i class=" fa-solid fa-cart-shopping me-2  "></i><span class="costCard ">0</span></li>
+            </ul> 
+          </nav>
+      </header>     <!--fin del header--> 
+      <!--  inicio del carrito de compras-->  
+      <!-- <p class=" emptyCart text-secondary " > Carrito Vacio</p>   --> 
+       <p  class="cartPortable"><i class="iconCart fa-solid fa-cart-shopping"></i></p>
+        <div class="shopCarbox">  
+          <div class="total bg-success pe-2" >
+            <p class="tex-Cost text-light">Total a pagar: <span class="costNumber" >$ 0</span></p> 
+            <button class="btn ">Pagar</button>
+          </div> 
+          <div id="containerCart"> 
+          </div>
+        </div>
+      <!-- fin del carrito de compras -->
+      <div class="advertisementsGeneral"> 
+          <div class="advertisements">  <!--inicio de anuncios-->  
+            <div class="miniAdop d-flex justify-content-center ">
+                <div class="miniAdopCard ">
+                  <div class="aniAdop  d-flex" style=" width: 12rem; 
+                  gap: 1rem; 
+                  padding: .5rem;
+                  justify-content: center;
+                  align-items: center; 
+                  flex-flow:column nowrap">
+                    <img src="resource/adopcion/adopcion2.jpg" alt="" height="200px" width="150px"
+                    style="border-radius: 50%; 
+                    display: flex;" class="miniAdopCardImg" >
+                    <h3 class="descripAniAdop fw-medium text-white ">Orejas</h3>
+                  </div> 
+                  <div class="aniAdop  d-flex" style=" width: 12rem; 
+                  gap: 1rem; 
+                  padding: .5rem;
+                  justify-content: center;
+                  align-items: center; 
+                  flex-flow:column nowrap">
+                    <img src="resource/adopcion/gatitoAdopcion1.jpg" alt="" height="200px" width="150px"
+                    style="border-radius: 50%; 
+                    display: flex;" class="miniAdopCardImg" >
+                    <p class="descripAniAdop fw-medium text-white">Tequeño </p>
+                  </div> 
+                  <div class="aniAdop  d-flex" style=" width: 12rem; 
+                  gap: 1rem; 
+                  padding: .5rem;
+                  justify-content: center;
+                  align-items: center; 
+                  flex-flow:column nowrap">
+                    <img src="resource/adopcion/adopcion6.jpg" alt="" height="200px" width="150px"
+                    style="border-radius: 50%; 
+                    display: flex;" class="miniAdopCardImg" >
+                    <p class="descripAniAdop fw-medium text-white ">Stacy </p>
+                  </div>
+                </div>
+                <button type="button" class="titleAccessAdopt btn btn-danger rounded-5 text-white fs-3  fw-semibold p-3">Encuentra a tu compañero ideal</button>
+                <p class="descripAccessAdopt text-white fs-5 fw-medium text-center">Adopta, cuida y consiente a tu nuevo mejor amigo con nuestros productos</p>    
+                <button type="button" class="btn btn-primary text-white shadow-sm fw-semibold fs-5 p-2">ir a Tienda</button>
+              </div>  
+            
+        </div> <!--fin de anuncios--> 
+        <div class="store"><!--inicio de tienda-->
+          <div class="filter">
+            <label for="customRange2 " class="filterTitle">Rango de precio</label>
+            <p class="costRange text-center">$ 20.000</p> 
+            <br>
+            <input type="range" class="form-range" min="20000" step="20000" max="400000" value="20000" id="customRange2">
+            <div class="breed"> 
+              <p class="titleBreed filterTitle">Especie</p> 
+              <select name="" id="" class="w-50"> 
+                <option>Perro</option>
+              <option>Gatos</option>
+              </select>
+            </div> 
+            <div class="product"> 
+              <p class="productType">Tipo de Producto</p>
+              <input type="checkbox" name="food"> 
+              <label for="food">Alimentos</label> 
+              <input type="checkbox" name="medicine"> 
+              <label for="medicine">Medicamentos</label>
+            </div>  
+            <div> 
+              <hr> 
+              <p>Te Puede Interesar</p>
+              <input type="checkbox" name="oferta" id=""> 
+              <label for="oferta">Ofertas</label>
+            </div>
+          </div> 
+          <div class="productsList">
+          </div> 
+        </div>  <!--fin de tienda-->    
+        
+        <div class="hospital">    <!--inicio de hospital-->
+          <div class="infoExperience"> 
+            <img src="resource/hospital/experiencias/experiencia1.jpg" alt="Gatito en el hospital" class="photoCatHospital">
+            <div class="cardInfoHospital">
+              <h3 class="titleExperience">Urgencias Veterinarias 24 Horas</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, iste. Placeat doloribus, aliquam saepe culpa eius expedita dolore nihil harum voluptate esse, libero ratione reprehenderit nobis illum voluptates, fugit facilis!</p>
+              <buton type="button" class="btn btn-success w-75">¡¡<i class="fa-brands fa-whatsapp "></i> Háblanos!!</buton>
+            </div> 
+            </div>    
+            <hr class="border border-secondary border-1 opacity-25 me-5 ms-5"> 
+            <div class="infoExperience"> 
+              <div class="cardInfoHospital">
+                <h3 class="titleExperience">Expertos en todas las especialidades</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, iste. Placeat doloribus, aliquam saepe culpa eius expedita dolore nihil harum voluptate esse, libero ratione reprehenderit nobis illum voluptates, fugit facilis!</p>
+                <buton type="button" class="btn btn-success w-75">¡¡<i class="fa-brands fa-whatsapp "></i> Háblanos!!</buton>
+              </div> 
+              <img src="resource/hospital/experiencias/esperiencia 2.jpg" alt="Gatito en el hospital" class="photoCatHospital">
+            </div>   
+            <hr class="border border-secondary border-1 opacity-25 me-5 ms-5"> 
+            
+            <div class="infoExperience"> 
+              <img src="resource/hospital/experiencias/experiencia3.jpg" alt="Gatito en el hospital" class="photoCatHospital">
+              <div class="cardInfoHospital">
+                <h3 class="titleExperience">Nuestro Compromiso</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, iste. Placeat doloribus, aliquam saepe culpa eius expedita dolore nihil harum voluptate esse, libero ratione reprehenderit nobis illum voluptates, fugit facilis!</p>
+                <buton type="button" class="btn btn-success w-75">¡¡<i class="fa-brands fa-whatsapp "></i> Háblanos!!</buton>
+              </div> 
+            </div> 
+            <hr class="border border-secondary border-1 opacity-25 me-5 ms-5"> 
+            <form action="" class="form"> 
+              <h3 class="w-100 text-center">¿Nesecitas ayuda?</h3> 
+              <div class="inputs"> 
+                <input type="text" placeholder="Nombre" class="datosHelp">
+                <input type="text" placeholder="Apellido" class="datosHelp">
+                <input type="text" placeholder="Email" class="datosHelp">
+              </div> 
+              <button class="btn btn-primary w-100" >Enviar</button>
+            </form> 
+            <hr class="border border-secondary border-1 opacity-50 me-5 ms-5"> 
+            
+            <h3 class="expertEmergency w-100 text-center">Somos expertos en urgencias veterinarias 24 horas</h3>
+            <div class="infoBasic">
+              <div class="pet">
+                  <h3 class="dato">+850</h3> 
+                  <p class="descripcionClinical">Mascotas Atendidas</p>
+                </div>  
+                <div class="pet">
+                <h3 class="dato">+5</h3> 
+                <p class="descripcionClinical">Años de Experiencia</p>
+              </div> 
+              <div class="pet">
+                <h3 class="dato">+400</h3> 
+                <p class="descripcionClinical">Cirugias Realizadas</p>
+              </div> 
+              <div class="pet">
+                <h3 class="dato">+850</h3> 
+                <p class="descripcionClinical">Servicios Especialidad</p>
+              </div> 
+          </div> 
+        </div>  <!--fin del hospital  --> 
+        <div class="adopcion"> 
+          <h3 class="titleAdop mb-5">¡¡Adoptame!! </h3> 
+          <div class="carouselBox">
+            <div class="CarouselMovement" id="CarouselMovement">
+              <div class="carouselElement"> 
+                <img src="resource/adopcion/gatitoAdopcion1.jpg"  alt="" class="imgAdopcion"> 
+                <p class="nom">Tequeño</p> 
+              </div>   
+              <div class="carouselElement"> 
+                <img src="resource/adopcion/adopcion2.jpg"  alt="" class="imgAdopcion"> 
+                <p class="nom">Orejas</p> 
+              </div>   
+              <div class="carouselElement"> 
+                <img src="resource/adopcion/adopcion3.jpg"  alt="" class="imgAdopcion"> 
+                <p class="nom">Principe</p> 
+              </div>  
+              <div class="carouselElement"> 
+                <img src="resource/adopcion/adopcion6.jpg"  alt="" class="imgAdopcion"> 
+                <p class="nom">Stacy</p>     
+              </div>   
+              <div class="carouselElement"> 
+                <img src="resource/adopcion/adopcion7.jpg"  alt="" class="imgAdopcion"> 
+                <p class="nom">Mohamed Sumbul</p> 
+              </div> 
+              <div class="carouselElement"> 
+                <img src="resource/adopcion/adopcion8.jpg"  alt="" class="imgAdopcion"> 
+                <p class="nom">Max</p> 
+              </div>  
+              <div class="carouselElement"> 
+                <img src="resource/adopcion/Imagen9.jpg"  alt="" class="imgAdopcion"> 
+                <p class="nom">Melvin</p> 
+              </div>   
+              
+            </div>  
+            <p class="text-center fw-semibold pe-3 ps-3">Nuestros peludos en adopcion se entregan desparacitados y vacunados ademas recuerda que pueden estar o no disponible en el momento en el que miras nuestras pagina, sin embargo te invitamos a comunicarte con nosotros via Whatsapp para darte mas informacion</p>
+          </div>
+        </div> 
+        <div id="notify" class="notify">
+
+        </div>
+        <footer class="footer mt-5 bg-danger"> 
+          <nav class="footer-nav">
+              <a href="#">inicio</a>
+              <a href="#">Instagram</a>
+              <a href="#">Facebook</a>
+              <a href="#">About</a>
+          </nav>
+          <hr class="footer-line">
+          <p class="footer-copy">© 2024 Company, Inc</p>
+        </footer>
+      </div>  
+    
+    </div>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>   
+      <script src="https://kit.fontawesome.com/d8ed2fc50c.js" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+      <script src="app.js"  ></script> 
+      
+  </body>
+</html>
