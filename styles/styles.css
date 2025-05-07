@@ -251,7 +251,7 @@ color: whitesmoke;
     width: 100vw !important; 
     height: 100vh !important;  
     position: relative; 
-    background: linear-gradient(to right, rgba(68, 145, 160, 0.6), rgba(241, 111, 202, 0.6)),url(../resource/add/gato-background.jpg); 
+    background: linear-gradient(to right, rgba(84, 215, 28, 0.6), rgba(227, 14, 195, 0.6)),url(../resource/add/gato-background.jpg); 
     background-position: bottom bottom; 
     background-attachment: fixed; 
     background-size: cover; 
@@ -267,7 +267,6 @@ color: whitesmoke;
     justify-content: center; 
     align-items: center;
     flex-flow: row nowrap;
-    gap: 4rem; 
     
 }    
 .miniAdop{  /*parte izquierda del hero */
@@ -276,13 +275,12 @@ width: 50%;
 padding: 1rem;
 flex-flow: column nowrap;    
 align-items: center; 
-gap: 1rem; 
 justify-content: center;
 }  
 .miniAdopCard{
     display: flex;   
     align-items: center;
-    gap: .5rem;
+    gap: 2rem;
 }  
 
 .descripAniAdop, .descripAccessAdopt{
@@ -293,23 +291,7 @@ justify-content: center;
 .miniAdopCardImg{
     filter: drop-shadow(1px 1px 5px black);
 }
-.storeAccess{
-    height: 100%; 
-    width: 50%;  
-    flex-flow: column nowrap;  
-} 
-.photoStoreAccess{
-    height: 10rem;
-}
-
 /*fin de anuncios principales*/ 
-/*parte derecha del hero */ 
-.titleStoreAccess{ 
-    text-shadow: 1px 1px 5px black; 
-    text-align: center;
-    font-family: var(--titleFamily--); 
-    letter-spacing: 2px;
-} 
 
 /*inicio de tienda */ 
 .store{  
