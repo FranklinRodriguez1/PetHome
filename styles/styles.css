@@ -96,7 +96,6 @@ text-decoration: none;
     align-items: center; 
     background-color: #000000;
     z-index: 1000;  
-    border: 2px solid rgb(236, 35, 35, 1); 
     text-decoration: none; 
     transition: .3s ease-in-out;
 }
@@ -249,13 +248,13 @@ color: whitesmoke;
 
 .advertisementsGeneral{ /*inicio de anuncios principales*/ 
     width: 100vw !important; 
-    height: 100vh !important;  
+    height: 91vh !important;  
     position: relative; 
     background: linear-gradient(to right, rgba(84, 215, 28, 0.6), rgba(227, 14, 195, 0.6)),url(../resource/add/gato-background.jpg); 
     background-position: bottom bottom; 
     background-attachment: fixed; 
     background-size: cover; 
-    background-repeat: no-repeat;   
+    background-repeat: no-repeat;    
 } 
 
 .advertisements{ 
@@ -266,21 +265,21 @@ color: whitesmoke;
     display: flex;    
     justify-content: center; 
     align-items: center;
-    flex-flow: row nowrap;
-    
-}    
+    flex-flow: row nowrap; 
+}     
 .miniAdop{  /*parte izquierda del hero */
-height: 100%; 
-width: 50%;   
-padding: 1rem;
-flex-flow: column nowrap;    
-align-items: center; 
-justify-content: center;
+    height: 80%; 
+    width: 50%;   
+    flex-flow: column nowrap;    
+    align-items: center; 
+    justify-content: center; 
+    background-color: rgba(9, 10, 21, 0.507);  
+    backdrop-filter: blur(10px);
+    border-radius: 2%; 
 }  
 .miniAdopCard{
     display: flex;   
     align-items: center;
-    gap: 2rem;
 }  
 
 .descripAniAdop, .descripAccessAdopt{
@@ -288,9 +287,21 @@ justify-content: center;
     font-size: 1.5rem; 
     text-shadow: 1px 2px 5px black ;
 } 
+.aniAdop{
+    border-radius: 10%;  
+    width: 12rem; 
+    gap: 2rem; 
+    padding: .5rem;
+    justify-content: center;
+    align-items: center; 
+    flex-flow:column nowrap
+} 
+
 .miniAdopCardImg{
-    filter: drop-shadow(1px 1px 5px black);
-}
+    filter: drop-shadow(1px 1px 5px rgba(148, 145, 145, 0.478)); 
+    padding: 0; 
+    margin: 0; 
+} 
 /*fin de anuncios principales*/ 
 
 /*inicio de tienda */ 
