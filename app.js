@@ -1,7 +1,7 @@
 // variable
 let total = []
 let contador = 0
-const show = document.querySelector('.costRange');// valor de rango
+const show = document.querySelector('.costRange');// valor de rango 
 const rango = document.querySelector('.form-range'); //input rango
 const btnCart = document.querySelector('.shopCar') ;//boton del carrito de compras 
 const costCard = document.querySelector('.costCard')
@@ -9,14 +9,14 @@ const showCart =  document.querySelector('.shopCarbox'); //contenedor del carrit
 const containerCart = document.getElementById('containerCart')
 const fragment = document.createDocumentFragment();
 const store = document.querySelector('.productsList') //tienda  
-let titleAdop = document.querySelector('.titleAdop')
-const adop = document.querySelectorAll('.carouselElement')   
-const notify = document.getElementById('notify')
+let titleAdop = document.querySelector('.titleAdop');
+const adop = document.querySelectorAll('.carouselElement');
+const notify = document.getElementById('notify');
 let arrayCart = []  //arreglo de compras del cliente  
-const CarouselMovement = document.getElementById('CarouselMovement')
-const costNumber = document.querySelector('.costNumber') 
-let cartPortable = document.querySelector(".cartPortable")
-let btnsFloat = []  
+const CarouselMovement = document.getElementById('CarouselMovement');
+const costNumber = document.querySelector('.costNumber') ;
+let cartPortable = document.querySelector(".cartPortable");
+let btnsFloat = [];  
 
  btnsFloat.push(btnCart, cartPortable)
 // filtros 
@@ -85,8 +85,10 @@ class ArticleCart { //class para pintar elementos en el carrito
                     data[i].nombre, 
                     data[i].envio_gratis,
                     data[i].precio 
-                )
-                createHtml(producto)  
+                ) 
+                // filtro(producto)
+                createHtml(producto) 
+                filtro(producto)  
             }  
             store.appendChild(fragment) 
             const buyBtn = document.querySelectorAll('.agg') //*funcion para agregar objetos al carrito de compras */
@@ -197,7 +199,12 @@ function validarArticulos(newElement) {
     
     // console.log(articleCart) 
 }
-
+function filtro (e){
+    rango.addEventListener('click', ()=>{ 
+        let showC = show.textContent.trim() 
+        console.log(Number(showC));
+    } )
+}
 function createHtml (arreglo){ // funcion para crear elementos dinamicamente con archivo json 
     let card = document.createElement('div'); 
     card.classList.add('elementStore')   
@@ -206,13 +213,17 @@ function createHtml (arreglo){ // funcion para crear elementos dinamicamente con
         free = "Envio Gratis"
     }else{
         free = "Costo por envio "
-    }
+    } 
+    let costFormatStore = new Intl.NumberFormat("es-Co",{
+        style: "currency",
+        currency:"COP",
+        maximumFractionDigits: 0}).format(arreglo.cost)
     card.innerHTML = ` 
             <img src="${arreglo.img}" class="photoElementStore" alt="">  
                 <div class="infoProductStore">
                     <p class="titleProductStore">${arreglo.nom}</p> 
                     <p class="send text-success">${free}</p>
-                    <span class="costStoreElement">${arreglo.cost}</span> 
+                    <span class="costStoreElement">${costFormatStore}</span> 
                 </div> 
             <button class="btn btn-primary w-50 agg">agregar</button>` 
             fragment.appendChild(card) 
@@ -222,7 +233,6 @@ function createHtml (arreglo){ // funcion para crear elementos dinamicamente con
 function createdElementCart(element){ // funcion para crear html de elementos a comprar en carrito   
     let elementCart = document.createElement('div')  
     elementCart.classList.add('boxElement')      
-    
     costFormat = new Intl.NumberFormat("es-CO",{
         style: "currency", 
         currency: "COP", 

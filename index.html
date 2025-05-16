@@ -76,16 +76,16 @@
             
         </div> <!--fin de anuncios--> 
         <div class="store"><!--inicio de tienda-->
-          <div class="filter">
+          <div class="filter d-flex flex-column gap-2 shadow-lg">
             <label for="customRange2 " class="filterTitle">Rango de precio</label>
             <p class="costRange text-center">$ 20.000</p> 
             <br>
-            <input type="range" class="form-range" min="20000" step="20000" max="400000" value="20000" id="customRange2">
+            <input type="range" class="form-range" min="20000" step="20000" max="400000" value="20000"  id="customRange2">
             <div class="breed"> 
               <p class="titleBreed filterTitle">Especie</p> 
               <select name="" id="" class="w-50"> 
                 <option>Perro</option>
-              <option>Gatos</option>
+                <option>Gatos</option>
               </select>
             </div> 
             <div class="product"> 
@@ -97,12 +97,17 @@
             </div>  
             <div> 
               <hr> 
-              <p>Te Puede Interesar</p>
+              <p class="fw-bold">Te Puede Interesar</p>
               <input type="checkbox" name="oferta" id=""> 
               <label for="oferta">Ofertas</label>
+            </div>  
+            <div class="buttonsFilter d-flex  justify-content-center gap-3 w-100 ">
+              <button type="button" class="btn btn-primary">aplicar</button> 
+              <button type="button" class="btn btn-secondary">limpiar filtros</button>
             </div>
           </div> 
-          <div class="productsList">
+          <div class="productsList shadow-lg">
+            <h3 class="title w-100 text-primary fw-bold text-end fs-6 ">Catalogo de productos</h3>
           </div> 
         </div>  <!--fin de tienda-->    
         

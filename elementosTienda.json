@@ -94,6 +94,14 @@
     "precio": 42000,
     "descuento": 0,
     "categoria": "Gato"
+  }, 
+  {
+    "img": "https://www.agrocampo.com.co/media/catalog/product/cache/dd0974c17aa11c1008feb0c4f8e4080c/_/5/_5_7_5757457415741000018.jpg",
+    "nombre": "Acondicionador para gatos 230 ml",
+    "envio_gratis": false,
+    "precio": 20300,
+    "descuento": 0,
+    "categoria": "Gato"
   }
 ]
 
