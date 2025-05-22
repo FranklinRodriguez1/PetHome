@@ -17,26 +17,9 @@ const costNumber = document.querySelector('.costNumber');
 let cartPortable = document.querySelector('.cartPortable');
 let btnsFloat = [btnCart, cartPortable];
 
-// Mostrar/ocultar carrito con GSAP
-btnsFloat.forEach(btn => {
-  btn.addEventListener('click', () => {
-    if (showCart.style.display === 'flex') {
-      gsap.to(showCart, {
-        right: -500,
-        duration: 0.5,
-        delay: 0.3,
-        onComplete: () => (showCart.style.display = 'none')
-      });
-    } else {
-      gsap.to(showCart, {
-        onStart: () => (showCart.style.display = 'flex'),
-        right: '1.2rem',
-        duration: 0.3,
-        delay: 0.3
-      });
-    }
-  });
-});
+
+
+
 
 let observer = new IntersectionObserver(validarVisibilidad, {});
 observer.observe(btnCart);
@@ -51,7 +34,7 @@ rango.addEventListener('input', e => {
   }).format(dinero);
 });
 
-class ItemCart {
+class ItemStore {
   constructor(imgProduct, nomProduct, sendProduct, costProduct) {
     this.img = imgProduct;
     this.nom = nomProduct;
@@ -72,21 +55,26 @@ fetch('./elementosTienda.json')
   .then(response => response.json())
   .then(data => {
     data.forEach(item => {
-      const producto = new ItemCart(item.img, item.nombre, item.envio_gratis, item.precio);
+      const producto = new ItemStore(
+        item.img, 
+        item.nombre,
+        item.envio_gratis,
+        item.precio);
       createHtml(producto);
     });
     store.appendChild(fragment);
 
     document.querySelectorAll('.agg').forEach(button => {
-      button.addEventListener('click', e => {
-        const parent = e.target.parentElement;
-        const info = parent.children[1];
-        const product = new ArticleCart(
-          parent.children[0].src,
-          info.children[0].textContent,
-          parseInt(parent.getAttribute('data-cost'))
-        );
-        validarArticulos(product);
+      button.addEventListener('click', e => {   
+          containsEmpty()
+          const parent = e.target.parentElement;
+          const info = parent.children[1];
+          const product = new ArticleCart(
+            parent.children[0].src,
+            info.children[0].textContent,
+            parseInt(parent.getAttribute('data-cost'))
+          )
+          validarArticulos(product);
       });
     });
   });
@@ -128,7 +116,7 @@ function validarArticulos(newElement) {
   actualizarTotal();
 }
 
-function createHtml(product) {
+function createHtml(product) { /*crea los articulos dentro de la tienda (no dentro del carrito de compras) */
   let card = document.createElement('div');
   card.classList.add('elementStore');
   card.setAttribute('data-cost', product.cost);
@@ -137,7 +125,7 @@ function createHtml(product) {
     <div class="infoProductStore">
       <p class="titleProductStore">${product.nom}</p>
       <p class="send text-success">${product.send ? 'Envio Gratis' : 'Costo por envio'}</p>
-      <span class="costStoreElement">${new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(product.cost)}</span>
+      <span class="costStoreElement">${new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP',maximumFractionDigits:0 }).format(product.cost)}</span>
     </div>
     <button class="btn btn-primary w-50 agg">agregar</button>`;
   fragment.appendChild(card);
@@ -155,16 +143,47 @@ function createdElementCart(product) {
     <div class="datosElement">
       <p class="nomProduct">${product.descrip}</p>
       <p class="cantidad">1</p>
-      <p class="costElement text-success">${new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(product.cost)}</p>
+      <p class="costElement text-success">${new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits:0 }).format(product.cost)}</p>
     </div>
     <i class="delete fa-solid fa-x"></i>`;
 
   containerCart.appendChild(element);
-
-  element.querySelector('.delete').addEventListener('click', () => {
-    element.remove();
+  element.querySelector('.delete').addEventListener('click', () => {  
+    element.remove();  
+    if(containerCart.children.length === 0){  
+      console.log("hola");
+    let msjElement = document.createElement('div')  
+    msjElement.classList.add ('d-flex', 'flex-column', 'justify-content-center', 'align-items-center', 'w-100', 'h-100', 'gap-4', 'msjCartEmpty')
+    msjElement.innerHTML = `
+    
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20%"  fill="currentColor" class="bi bi-cart-x" viewBox="0 0 16 16">
+    <path d="M7.354 5.646a.5.5 0 1 0-.708.708L7.793 7.5 6.646 8.646a.5.5 0 1 0 .708.708L8.5 8.207l1.146 1.147a.5.5 0 0 0 .708-.708L9.207 7.5l1.147-1.146a.5.5 0 0 0-.708-.708L8.5 6.793z"/>
+    <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+  </svg>
+                  <p class="fs-4 text-danger">¡¡Carrito vacio!!</p> 
+                  <p class="fs-5 text-black" >No te quedes sin mirar nuestros productos</p> 
+                  <button type="button" class="btn btn-primary w-50" >Ir a Tienda</button>
+                
+    `   
+    containerCart.appendChild(msjElement)  
     actualizarTotal();
+        
+    } 
+    else{
+      element.remove()
+      actualizarTotal(); 
+    }
+    actualizarTotal(); 
   });
+}
+
+function containsEmpty(){ 
+  let msjEmptyCart = containerCart.children[0]
+  if(msjEmptyCart.classList.contains("msjCartEmpty")){
+    msjEmptyCart.remove(); 
+    return
+  }  
+    return
 }
 
 // Animaciones GSAP
@@ -203,3 +222,23 @@ function validarVisibilidad(entries) {
     });
   }
 }
+// Mostrar/ocultar carrito con GSAP
+btnsFloat.forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (showCart.style.display === 'flex') {
+      gsap.to(showCart, {
+        right: -500,
+        duration: 0.5,
+        delay: 0.3,
+        onComplete: () => (showCart.style.display = 'none')
+      });
+    } else {
+      gsap.to(showCart, {
+        onStart: () => (showCart.style.display = 'flex'),
+        right: '1.2rem',
+        duration: 0.3,
+        delay: 0.3
+      });
+    }
+  });
+});

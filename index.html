@@ -27,11 +27,20 @@
       <!-- <p class=" emptyCart text-secondary " > Carrito Vacio</p>   --> 
        <p  class="cartPortable"><i class="iconCart fa-solid fa-cart-shopping"></i></p>
         <div class="shopCarbox">  
-          <div class="total bg-success pe-2" >
-            <p class="tex-Cost text-light">Total a pagar: <span class="costNumber" >$ 0</span></p> 
+          <div class="total bg-success pe-2" > 
+            <p class="tex-Cost text-light">Total a pagar: $ <span class="costNumber" > 0</span></p>  
             <button class="btn ">Pagar</button>
           </div> 
-          <div id="containerCart"> 
+          <div id="containerCart">  
+            <div class="d-flex flex-column justify-content-center align-items-center w-100 h-100 gap-4 msjCartEmpty">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20%"  fill="currentColor" class="bi bi-cart-x" viewBox="0 0 16 16">
+                <path d="M7.354 5.646a.5.5 0 1 0-.708.708L7.793 7.5 6.646 8.646a.5.5 0 1 0 .708.708L8.5 8.207l1.146 1.147a.5.5 0 0 0 .708-.708L9.207 7.5l1.147-1.146a.5.5 0 0 0-.708-.708L8.5 6.793z"/>
+                <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+              </svg>
+              <p class="fs-4 text-danger">¡¡Carrito vacio!!</p> 
+              <p class="fs-5 text-black" >No te quedes sin mirar nuestros productos</p> 
+              <button type="button" class="btn btn-primary w-50" >Ir a Tienda</button>
+            </div>
           </div>
         </div>
       <!-- fin del carrito de compras -->
@@ -101,9 +110,9 @@
               <input type="checkbox" name="oferta" id=""> 
               <label for="oferta">Ofertas</label>
             </div>  
-            <div class="buttonsFilter d-flex  justify-content-around  w-100 ">
-              <button type="button" class="btn btn-primary">aplicar</button> 
-              <button type="button" class="btn btn-secondary">limpiar filtros</button>
+            <div class="buttonsFilter d-flex  justify-content-around  w-100 gap-4 ">
+              <button type="button" class="btn btn-primary w-50">aplicar</button> 
+              <button type="button" class="btn btn-secondary w-50">limpiar filtros</button>
             </div>
           </div> 
           <div class="productsList shadow-lg">
@@ -227,7 +236,6 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>   
       <script src="https://kit.fontawesome.com/d8ed2fc50c.js" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
-      <script src="app.js"  ></script> 
-      
+      <script src="app.js"></script> 
   </body>
 </html>
