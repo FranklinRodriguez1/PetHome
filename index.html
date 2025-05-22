@@ -232,10 +232,30 @@
         </footer>
       </div>  
     
-    </div>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>   
-      <script src="https://kit.fontawesome.com/d8ed2fc50c.js" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
-      <script src="app.js"></script> 
+    </div> 
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>  <!-- biblioteca lenis -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>   <!--boostrap-->
+      <script src="https://kit.fontawesome.com/d8ed2fc50c.js" crossorigin="anonymous"></script> <!--fontawesome-->
+      <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script> <!--gsap-->
+      <script src="app.js"></script> <!--js local--> 
+      <script>
+
+const lenis = new Lenis({
+  // Value between 0 and 1
+  // Default value: 0.1
+  // The lower the value, the smoother the scroll
+  lerp: 0.05, 
+  // Default value: 1
+  // The higher the value, the faster the scrolling
+  wheelMultiplier: 1, 
+});
+
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
+
+</script>
   </body>
 </html>

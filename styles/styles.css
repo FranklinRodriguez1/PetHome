@@ -4,10 +4,22 @@
     padding: 0; 
     margin: 0; 
     box-sizing: border-box;
-}     
-html{
-    scroll-behavior: smooth;
+}      
+/*integracion de lenis */
+html.lenis {
+  height: auto;
 }
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+} 
+/*fin de la integracion */
+
 :root{
     --titleFamily-- :"Righteous"; 
     --textSecondary--: "Poppins" serif;
