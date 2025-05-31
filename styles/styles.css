@@ -283,7 +283,7 @@ color: whitesmoke;
     flex-flow: row nowrap; 
 }     
 .miniAdop{  /*parte izquierda del hero */
-    height: 80%; 
+    height: 0%; 
     width: 50%;   
     flex-flow: column nowrap;    
     align-items: center; 
@@ -332,7 +332,7 @@ color: whitesmoke;
     gap: 2rem;
 } 
 .filter{ /*incio de los filtros */ 
-    height: 70vh ; 
+    height: 72vh ; 
     width: 25vw;
     position: relative;    
     padding: 1rem; 
@@ -340,7 +340,9 @@ color: whitesmoke;
     background-color: rgb(255, 255, 255);  
     border-radius: 10px;   
 }   
-
+.form-range{
+    height: .5rem !important;
+}
 .filterTitle{
     font-family: var(--titleFamily--);  
     
@@ -348,9 +350,17 @@ color: whitesmoke;
 .costRange{
     color: green; 
     font-family: var(--titleFamily--); 
-    font-size: 1.5rem
+    font-size: 1.5rem; 
+    margin: 0; 
+    padding: 0;
 }
-/*fin de los filtros*/
+/*fin de los filtros*/ 
+.containerProductList{
+    h3{
+        border-top-left-radius:10px ; 
+        border-top-right-radius:10px ;
+    }
+}
 .productsList{   
     display: flex; 
     position: relative;
@@ -359,8 +369,10 @@ color: whitesmoke;
     padding: 2rem;  
     gap: 1rem;  
     flex-flow: row wrap;  
-    border-radius: 10px;   
-    background-color: rgb(255, 255, 255);  
+    border-bottom-left-radius: 10px; 
+    border-bottom-right-radius: 10px;   
+    background-color: rgb(255, 255, 255);   
+    
 } 
 
 .elementStore{  

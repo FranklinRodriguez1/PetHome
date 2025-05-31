@@ -1,7 +1,6 @@
 // Variables globales
 let total = [];
 let contador = 0;
-const show = document.querySelector('.costRange');
 const rango = document.querySelector('.form-range');
 const btnCart = document.querySelector('.shopCar');
 const costCard = document.querySelector('.costCard');
@@ -16,14 +15,50 @@ const CarouselMovement = document.getElementById('CarouselMovement');
 const costNumber = document.querySelector('.costNumber');
 let cartPortable = document.querySelector('.cartPortable');
 let btnsFloat = [btnCart, cartPortable];
+let observer = new IntersectionObserver(validarVisibilidad, {}); /*variable para aplicar el efecto de aparicion del boton del carrito de compras */
 
 
+//variables filtos
+const show = document.querySelector('.costRange');    //cantidad mostrada en el input de rango
+let containerFilter = [...document.querySelector('.productsList').children]; //array de objetos creados con el fetch
+let priceMax = document.querySelector('.costRange').textContent;    //precio mostrado en el input range
+let precioMaxNumber = priceMax.replace('.', '').replace(/[^0-9,.-]+/g, '')  //se elimina el formato moneda del string 
+let especieInput = document.getElementById('especie').value; // se toma el dato personalizado
+const precio = parseInt(element.getAttribute('data-cost'))    // se toma el dato personalizado del costo del elemento de la tienda
+const limpiarFiltros = document.getElementById('limpiarFiltros')  //boton para limpiar los filtros
+limpiarFiltros.addEventListener('click', clean )//listener para el boton de limpiar del filtro) 
+const applyFilter  = document.querySelector('.applyFilter');  //boton para aplicar los filtros
 
-
-
-let observer = new IntersectionObserver(validarVisibilidad, {});
-observer.observe(btnCart);
-
+function clean (){
+  [...document.querySelector('.productsList').children].forEach(element => {
+    element.style.display = ""  
+    show.textContent = "$ 20.000" 
+    rango.value = 20000
+  });
+}
+applyFilter.addEventListener('click', filter)   // listener para aplicar los filtros
+//fin de las variables de filtro
+//funcion para filtrar
+function filter() { /*funcion para aplicar filtros a la tienda de productos*/
+  
+  let filtroApply = containerFilter.filter(element => { // se aplica la filter array de elemento de la tienda
+      const coincide = element.getAttribute('data-categoria').toLowerCase() === especieInput.toLowerCase() || element.getAttribute('data-categoria').toLowerCase() === "perros y gatos";    
+      const coincideprecio = precio <= parseInt(precioMaxNumber) 
+      if( coincide && coincideprecio  ){
+        element.style.display = ""
+      }  
+      else{
+        element.style.display ="none"
+      }
+    
+  })
+  return filtroApply 
+  
+  
+}
+// else{console.log("hola");}
+// if(document.getElementById('especie').value.toLowerCase() === element.getAttribute('data-categoria').toLowerCase() || element.getAttribute('data-categoria').toLowerCase() === "perros y gatos" ){
+// } 
 // Filtro de rango
 rango.addEventListener('input', e => {
   let dinero = e.target.value;
@@ -32,14 +67,20 @@ rango.addEventListener('input', e => {
     currency: 'COP',
     maximumFractionDigits: 0
   }).format(dinero);
-});
+}); 
+//fin del filtro de rango 
+
+
 
 class ItemStore {
-  constructor(imgProduct, nomProduct, sendProduct, costProduct) {
+  constructor(imgProduct, nomProduct, sendProduct, costProduct, categoria,subcategoria
+) {
     this.img = imgProduct;
     this.nom = nomProduct;
     this.send = sendProduct;
-    this.cost = costProduct;
+    this.cost = costProduct; 
+    this.categoria = categoria; 
+    this.subcategoria = subcategoria
   }
 }
 
@@ -59,11 +100,13 @@ fetch('./elementosTienda.json')
         item.img, 
         item.nombre,
         item.envio_gratis,
-        item.precio);
+        item.precio, 
+        item.categoria,
+        item.subcategoria
+      )
       createHtml(producto);
     });
     store.appendChild(fragment);
-
     document.querySelectorAll('.agg').forEach(button => {
       button.addEventListener('click', e => {   
           containsEmpty()
@@ -77,7 +120,24 @@ fetch('./elementosTienda.json')
           validarArticulos(product);
       });
     });
-  });
+  }); 
+  function createHtml(product) { /*crea los articulos dentro de la tienda (no dentro del carrito de compras) */
+  let card = document.createElement('div');
+  card.classList.add('elementStore');
+  card.setAttribute('data-cost', product.cost);  
+  card.setAttribute('data-categoria', product.categoria)  
+  card.setAttribute('data-subcategoria', product.subcategoria )
+  
+  card.innerHTML = `
+    <img src="${product.img}" class="photoElementStore" alt="">
+    <div class="infoProductStore">
+      <p class="titleProductStore">${product.nom}</p>
+      <p class="send text-success">${product.send ? 'Envio Gratis' : 'Costo por envio'}</p>
+      <span class="costStoreElement">${new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP',maximumFractionDigits:0 }).format(product.cost)}</span>
+    </div>
+    <button class="btn btn-primary w-50 agg">agregar</button>`;
+  fragment.appendChild(card); 
+}
 
 function actualizarTotal() {
   const elements = containerCart.querySelectorAll('.boxElement');
@@ -90,6 +150,8 @@ function actualizarTotal() {
   costCard.textContent = elements.length;
 }
 
+
+
 function validarArticulos(newElement) {
   let existe = false;
   document.querySelectorAll('.boxElement').forEach(cartItem => {
@@ -97,7 +159,6 @@ function validarArticulos(newElement) {
       let cantidad = cartItem.querySelector('.cantidad');
       let nuevaCantidad = parseInt(cantidad.textContent) + 1;
       cantidad.textContent = nuevaCantidad;
-
       let nuevoCosto = nuevaCantidad * newElement.cost;
       cartItem.setAttribute('data-Newcost', nuevoCosto);
       cartItem.querySelector('.costElement').textContent = new Intl.NumberFormat('es-CO', {
@@ -114,21 +175,6 @@ function validarArticulos(newElement) {
     createdElementCart(newElement);
   }
   actualizarTotal();
-}
-
-function createHtml(product) { /*crea los articulos dentro de la tienda (no dentro del carrito de compras) */
-  let card = document.createElement('div');
-  card.classList.add('elementStore');
-  card.setAttribute('data-cost', product.cost);
-  card.innerHTML = `
-    <img src="${product.img}" class="photoElementStore" alt="">
-    <div class="infoProductStore">
-      <p class="titleProductStore">${product.nom}</p>
-      <p class="send text-success">${product.send ? 'Envio Gratis' : 'Costo por envio'}</p>
-      <span class="costStoreElement">${new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP',maximumFractionDigits:0 }).format(product.cost)}</span>
-    </div>
-    <button class="btn btn-primary w-50 agg">agregar</button>`;
-  fragment.appendChild(card);
 }
 
 function createdElementCart(product) {
@@ -204,6 +250,12 @@ gsap.to(titleAdop, {
   yoyo: true
 });
 
+
+
+// Mostrar/ocultar carrito con GSAP 
+
+observer.observe(btnCart);
+
 function validarVisibilidad(entries) {
   const entry = entries[0];
   if (entry.isIntersecting) {
@@ -222,7 +274,7 @@ function validarVisibilidad(entries) {
     });
   }
 }
-// Mostrar/ocultar carrito con GSAP
+
 btnsFloat.forEach(btn => {
   btn.addEventListener('click', () => {
     if (showCart.style.display === 'flex') {
@@ -241,4 +293,4 @@ btnsFloat.forEach(btn => {
       });
     }
   });
-});
+}); 

@@ -5,7 +5,8 @@
     "envio_gratis": false,
     "precio": 45900,
     "descuento": 0,
-    "categoria": "Gato"
+    "categoria": "Gatos",
+    "subcategoria" : "Comida"
   },
   {
     "img": "resource/store/Purina Pro Plan Veterinary Diets HA Hydrolyzed Canine Formula.jpg",
@@ -13,7 +14,9 @@
     "envio_gratis": true,
     "precio": 120000,
     "descuento": 10,
-    "categoria": "Perro"
+    "categoria": "Perros", 
+    "subcategoria" : "Comida"
+    
   },
   {
     "img": "https://puppiscolombia.vteximg.com.br/arquivos/ids/192603-1000-1000/153-PPVD-CAT-EN-GASTROINTESTINAL.png?v=638525047075030000",
@@ -21,7 +24,8 @@
     "envio_gratis": true,
     "precio": 110000,
     "descuento": 12,
-    "categoria": "Gato"
+    "categoria": "Gatos",
+    "subcategoria" : "Comida"
   },
   {
     "img": "https://http2.mlstatic.com/D_NQ_NP_726420-MCO69403131453_052023-O.webp",
@@ -29,7 +33,8 @@
     "envio_gratis": false,
     "precio": 250000,
     "descuento": 5,
-    "categoria": "Equipo Médico"
+    "categoria": "Perros y Gatos", 
+    "subcategoria" : "medicamento"
   },
   {
     "img": "https://d23qt3x1ychzdy.cloudfront.net/dev_images_products/78729_Ama_Pet___Alimento_h__medo_esterilizado_Vacuno_1653076476_0_500x500.jpg",
@@ -37,7 +42,8 @@
     "envio_gratis": false,
     "precio": 15000,
     "descuento": 0,
-    "categoria": "Perro"
+    "categoria": "Perros",
+    "subcategoria" : "Comida"
   },
   {
     "img": "https://d23qt3x1ychzdy.cloudfront.net/dev_images_products/faa6d4ff17638d9139a0869b7780d82a_1704489342.jpg",
@@ -45,7 +51,8 @@
     "envio_gratis": false,
     "precio": 8000,
     "descuento": 0,
-    "categoria": "Gato"
+    "categoria": "Gatos",
+    "comida" : "Comida"
   },
   {
     "img": "https://estacionmascota.com/623-large_default/spectrum-amoxicilina-acido-clavulanico-30-ml.jpg",
@@ -53,7 +60,8 @@
     "envio_gratis": false,
     "precio": 30000,
     "descuento": 5,
-    "categoria": "Perro y Gato"
+    "categoria": "Perros y Gatos", 
+    "comida" : "medicamento"
   },
   {
     "img": "https://media.zooplus.com/bilder/9/400/2308_purizon_sterilised_salmonchicken_2_5kg_1000x1000_9.jpg",
@@ -61,7 +69,8 @@
     "envio_gratis": true,
     "precio": 95000,
     "descuento": 10,
-    "categoria": "Gato"
+    "categoria": "Gatos", 
+    "comida" : "Comida"
   },
   {
     "img": "https://media.zooplus.com/bilder/5/400/wildfreedom_classic_wide_country_kitten_200g_1000x1000_5.jpg",
@@ -69,7 +78,8 @@
     "envio_gratis": true,
     "precio": 60000,
     "descuento": 8,
-    "categoria": "Gato"
+    "categoria": "Gatos", 
+    "comida" : "Comida"
   },
   {
     "img": "https://media.zooplus.com/bilder/7/800/cosma_maxitube_duck_1000x1000_7.jpg",
@@ -77,7 +87,8 @@
     "envio_gratis": false,
     "precio": 40000,
     "descuento": 5,
-    "categoria": "Gato"
+    "categoria": "Gatos", 
+    "comida" : "Comida"
   },
   {
     "img": "https://media.zooplus.com/bilder/9/400/tigerino_premium_almond_milk_honey_12kg_1000x1000_9.jpg",
@@ -85,7 +96,8 @@
     "envio_gratis": false,
     "precio": 70000,
     "descuento": 0,
-    "categoria": "Gato"
+    "categoria": "Gatos", 
+    "comida" : "aseo"
   },
   {
     "img": "https://lares.com.co/wp-content/uploads/2023/03/CatChow-Pescado-Gatitos-Front-1000x1000-1.jpg",
@@ -93,7 +105,8 @@
     "envio_gratis": false,
     "precio": 42000,
     "descuento": 0,
-    "categoria": "Gato"
+    "categoria": "Gatos", 
+    "comida" : "Comida"
   }, 
   {
     "img": "https://www.agrocampo.com.co/media/catalog/product/cache/dd0974c17aa11c1008feb0c4f8e4080c/_/5/_5_7_5757457415741000018.jpg",
@@ -101,7 +114,8 @@
     "envio_gratis": false,
     "precio": 20300,
     "descuento": 0,
-    "categoria": "Gato"
+    "categoria": "Gatos", 
+    "subcategoria" : "aseo"
   }
 ]
 

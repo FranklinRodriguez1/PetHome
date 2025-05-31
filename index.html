@@ -85,39 +85,37 @@
             
         </div> <!--fin de anuncios--> 
         <div class="store"><!--inicio de tienda-->
-          <div class="filter d-flex flex-column gap-2 shadow-lg">
+          <div class="filter d-flex flex-column shadow-lg gap-3 ">  
+            <h3 class="titleFilter w-100 text-primary fw-bold  fs-5 bg-white pb-3 m-0">Filtros</h3>
             <label for="customRange2 " class="filterTitle">Rango de precio</label>
-            <p class="costRange text-center" data-cost = 4000>$ 20.000</p> 
+            <p class="costRange text-center fs-2 text-danger" data-cost = 4000>$ 20.000</p> 
             <br>
-            <input type="range" class="form-range" min="20000" step="20000" max="400000" value="20000"  id="customRange2">
+            <input type="range" class="form-range m-0 p-0" min="20000" step="20000" max="400000" value="20000"  id="customRange2">
             <div class="breed"> 
-              <p class="titleBreed filterTitle">Especie</p> 
-              <select name="" id="" class="w-50"> 
-                <option>Perro</option>
-                <option>Gatos</option>
+              <p class=" filterTitle">Especie</p> 
+              <select name="" id="especie" class="w-50"> 
+                <option>Perros</option>
+                <option>Gatos</option> 
               </select>
             </div> 
-            <div class="product"> 
-              <p class="productType">Tipo de Producto</p>
+            <div class="product "> 
+              <p class="productType filterTitle ">Tipo de Producto</p>
               <input type="checkbox" name="food"> 
               <label for="food">Alimentos</label> 
               <input type="checkbox" name="medicine"> 
               <label for="medicine">Medicamentos</label>
             </div>  
-            <div> 
-              <hr> 
-              <p class="fw-bold">Te Puede Interesar</p>
-              <input type="checkbox" name="oferta" id=""> 
-              <label for="oferta">Ofertas</label>
-            </div>  
             <div class="buttonsFilter d-flex  justify-content-around  w-100 gap-4 ">
-              <button type="button" class="btn btn-primary w-50">aplicar</button> 
-              <button type="button" class="btn btn-secondary w-50">limpiar filtros</button>
+              <button type="submit" class="btn btn-primary w-50 applyFilter" >Aplicar</button> 
+              <button type="button" class="btn btn-secondary w-50 " id ="limpiarFiltros">Limpiar Filtros</button>
             </div>
-          </div> 
-          <div class="productsList shadow-lg">
-            <h3 class="title w-100 text-primary fw-bold text-end fs-6 ">Catalogo de productos</h3>
-          </div> 
+          </div>  
+          <div class="containerProductList shadow-lg ">
+            <h3 class="title w-100 text-primary fw-bold text-end fs-6 bg-white p-3 m-0 ">Catalogo de productos</h3>
+            <div class="productsList">
+            </div> 
+
+          </div>
         </div>  <!--fin de tienda-->    
         
         <div class="hospital">    <!--inicio de hospital-->
@@ -232,7 +230,7 @@
         </footer>
       </div>  
     
-    </div> 
+    </div>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>  <!-- biblioteca lenis -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>   <!--boostrap-->
       <script src="https://kit.fontawesome.com/d8ed2fc50c.js" crossorigin="anonymous"></script> <!--fontawesome-->
@@ -244,7 +242,7 @@ const lenis = new Lenis({
   // Value between 0 and 1
   // Default value: 0.1
   // The lower the value, the smoother the scroll
-  lerp: 0.05, 
+  lerp: 0.03, 
   // Default value: 1
   // The higher the value, the faster the scrolling
   wheelMultiplier: 1, 
