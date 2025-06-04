@@ -336,7 +336,6 @@ color: whitesmoke;
     width: 25vw;
     position: relative;    
     padding: 1rem; 
-    gap: 1rem;  
     background-color: rgb(255, 255, 255);  
     border-radius: 10px;   
 }   

@@ -6,7 +6,7 @@
     "precio": 45900,
     "descuento": 0,
     "categoria": "Gatos",
-    "subcategoria" : "Comida"
+    "subcategoria" : "comida"
   },
   {
     "img": "resource/store/Purina Pro Plan Veterinary Diets HA Hydrolyzed Canine Formula.jpg",
@@ -15,7 +15,7 @@
     "precio": 120000,
     "descuento": 10,
     "categoria": "Perros", 
-    "subcategoria" : "Comida"
+    "subcategoria" : "comida"
     
   },
   {
@@ -25,7 +25,7 @@
     "precio": 110000,
     "descuento": 12,
     "categoria": "Gatos",
-    "subcategoria" : "Comida"
+    "subcategoria" : "comida"
   },
   {
     "img": "https://http2.mlstatic.com/D_NQ_NP_726420-MCO69403131453_052023-O.webp",
@@ -43,7 +43,7 @@
     "precio": 15000,
     "descuento": 0,
     "categoria": "Perros",
-    "subcategoria" : "Comida"
+    "subcategoria" : "comida"
   },
   {
     "img": "https://d23qt3x1ychzdy.cloudfront.net/dev_images_products/faa6d4ff17638d9139a0869b7780d82a_1704489342.jpg",
@@ -52,7 +52,7 @@
     "precio": 8000,
     "descuento": 0,
     "categoria": "Gatos",
-    "comida" : "Comida"
+    "subcategoria" : "comida"
   },
   {
     "img": "https://estacionmascota.com/623-large_default/spectrum-amoxicilina-acido-clavulanico-30-ml.jpg",
@@ -61,7 +61,7 @@
     "precio": 30000,
     "descuento": 5,
     "categoria": "Perros y Gatos", 
-    "comida" : "medicamento"
+    "subcategoria" : "medicamento"
   },
   {
     "img": "https://media.zooplus.com/bilder/9/400/2308_purizon_sterilised_salmonchicken_2_5kg_1000x1000_9.jpg",
@@ -70,7 +70,7 @@
     "precio": 95000,
     "descuento": 10,
     "categoria": "Gatos", 
-    "comida" : "Comida"
+    "subcategoria" : "Comida"
   },
   {
     "img": "https://media.zooplus.com/bilder/5/400/wildfreedom_classic_wide_country_kitten_200g_1000x1000_5.jpg",
@@ -79,7 +79,7 @@
     "precio": 60000,
     "descuento": 8,
     "categoria": "Gatos", 
-    "comida" : "Comida"
+    "subcategoria" : "Comida"
   },
   {
     "img": "https://media.zooplus.com/bilder/7/800/cosma_maxitube_duck_1000x1000_7.jpg",
@@ -88,7 +88,7 @@
     "precio": 40000,
     "descuento": 5,
     "categoria": "Gatos", 
-    "comida" : "Comida"
+    "subcategoria" : "Comida"
   },
   {
     "img": "https://media.zooplus.com/bilder/9/400/tigerino_premium_almond_milk_honey_12kg_1000x1000_9.jpg",
@@ -97,7 +97,7 @@
     "precio": 70000,
     "descuento": 0,
     "categoria": "Gatos", 
-    "comida" : "aseo"
+    "subcategoria" : "aseo"
   },
   {
     "img": "https://lares.com.co/wp-content/uploads/2023/03/CatChow-Pescado-Gatitos-Front-1000x1000-1.jpg",
@@ -106,7 +106,7 @@
     "precio": 42000,
     "descuento": 0,
     "categoria": "Gatos", 
-    "comida" : "Comida"
+    "subcategoria" : "Comida"
   }, 
   {
     "img": "https://www.agrocampo.com.co/media/catalog/product/cache/dd0974c17aa11c1008feb0c4f8e4080c/_/5/_5_7_5757457415741000018.jpg",

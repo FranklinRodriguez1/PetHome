@@ -19,17 +19,11 @@ let observer = new IntersectionObserver(validarVisibilidad, {}); /*variable para
 
 
 //variables filtos
-const show = document.querySelector('.costRange');    //cantidad mostrada en el input de rango
-let containerFilter = [...document.querySelector('.productsList').children]; //array de objetos creados con el fetch
-let priceMax = document.querySelector('.costRange').textContent;    //precio mostrado en el input range
-let precioMaxNumber = priceMax.replace('.', '').replace(/[^0-9,.-]+/g, '')  //se elimina el formato moneda del string 
-let especieInput = document.getElementById('especie').value; // se toma el dato personalizado
-const precio = parseInt(element.getAttribute('data-cost'))    // se toma el dato personalizado del costo del elemento de la tienda
 const limpiarFiltros = document.getElementById('limpiarFiltros')  //boton para limpiar los filtros
-limpiarFiltros.addEventListener('click', clean )//listener para el boton de limpiar del filtro) 
+const show = document.querySelector('.costRange');    //cantidad mostrada en el input de rango
 const applyFilter  = document.querySelector('.applyFilter');  //boton para aplicar los filtros
-
-function clean (){
+limpiarFiltros.addEventListener('click', clean )//listener para el boton de limpiar del filtro)
+function clean (){ 
   [...document.querySelector('.productsList').children].forEach(element => {
     element.style.display = ""  
     show.textContent = "$ 20.000" 
@@ -39,23 +33,45 @@ function clean (){
 applyFilter.addEventListener('click', filter)   // listener para aplicar los filtros
 //fin de las variables de filtro
 //funcion para filtrar
-function filter() { /*funcion para aplicar filtros a la tienda de productos*/
-  
-  let filtroApply = containerFilter.filter(element => { // se aplica la filter array de elemento de la tienda
-      const coincide = element.getAttribute('data-categoria').toLowerCase() === especieInput.toLowerCase() || element.getAttribute('data-categoria').toLowerCase() === "perros y gatos";    
-      const coincideprecio = precio <= parseInt(precioMaxNumber) 
-      if( coincide && coincideprecio  ){
-        element.style.display = ""
-      }  
-      else{
-        element.style.display ="none"
+function filter() {
+  // Obtener datos del filtro
+  let especieInput = document.getElementById('especie').value.toLowerCase();
+  let containerFilter = [...document.querySelector('.productsList').children];
+  let priceMax = document.querySelector('.costRange').textContent;
+  let precioMaxNumber = priceMax.replace('.', '').replace(/[^0-9,.-]+/g, '');
+
+  // Estado de los checkboxes
+  const checkAlimentos = document.getElementById('alimentos').checked;
+  const checkMedicamentos = document.getElementById('medicamentos').checked;
+
+  containerFilter.forEach(element => {
+    const categoria = element.getAttribute('data-categoria').toLowerCase();
+    const subcategoria = element.getAttribute('data-subcategoria').toLowerCase();
+    const precio = parseInt(element.getAttribute('data-cost'));
+
+    const coincideCategoria = categoria === especieInput || categoria === "perros y gatos";
+    const coincidePrecio = precio <= parseInt(precioMaxNumber);
+    const esComida = subcategoria === "comida";
+    const esMedicamento = subcategoria === "medicamento";
+
+    let mostrar = false;
+
+    if (coincideCategoria && coincidePrecio ) {
+      // Aplicar filtros por subcategoría
+      if (checkAlimentos && esComida) {
+        mostrar = true;
+      } else if (checkMedicamentos && esMedicamento) {
+        mostrar = true;
+      } else if (!checkAlimentos && !checkMedicamentos) {
+        // Si no hay filtros por subcategoría, mostrar todos los que coinciden por especie y precio
+        mostrar = true;
       }
-    
-  })
-  return filtroApply 
-  
-  
+    }
+    // Mostrar u ocultar elemento
+    element.style.display = mostrar ? "" : "none";
+  });
 }
+
 // else{console.log("hola");}
 // if(document.getElementById('especie').value.toLowerCase() === element.getAttribute('data-categoria').toLowerCase() || element.getAttribute('data-categoria').toLowerCase() === "perros y gatos" ){
 // } 
