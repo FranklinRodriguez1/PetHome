@@ -374,7 +374,7 @@ color: whitesmoke;
     width: 100%;
 }
 .filter{ /*incio de los filtros */ 
-    height: 72vh ; 
+    height: 60vh ; 
     width: 25vw;
     position: relative;    
     padding: 1rem; 
