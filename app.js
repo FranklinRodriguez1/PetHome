@@ -41,8 +41,7 @@ function filter() {
   let precioMaxNumber = priceMax.replace('.', '').replace(/[^0-9,.-]+/g, '');
 
   // Estado de los checkboxes
-  const checkAlimentos = document.getElementById('alimentos').checked;
-  const checkMedicamentos = document.getElementById('medicamentos').checked;
+
 
   containerFilter.forEach(element => {
     const categoria = element.getAttribute('data-categoria').toLowerCase();
@@ -266,8 +265,24 @@ gsap.to(titleAdop, {
   yoyo: true
 });
 
+//mostrar menu en responsive
+const header = document.querySelector('.header')/*contenedor header*/ 
+const menu  = document.querySelector('.menu')/**/ 
+let desplegado = false
+const menuResponsive = document.getElementById('menuAccesresponsive') //boton del despliege del menu
+menuResponsive.addEventListener('click', ()=>{  
 
-
+  if(!desplegado){
+    gsap.to(menu,{ duration: 0.5, display:"flex", ease: 'power1.inOut'})
+  header.style.height = "13rem" 
+  desplegado = true
+  }
+  else if(desplegado === true){
+    gsap.to(menu,{ duration: 0, display:"none" })
+    desplegado = false
+    header.style.height = "100%" 
+  }
+})
 // Mostrar/ocultar carrito con GSAP 
 
 observer.observe(btnCart);

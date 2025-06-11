@@ -1,0 +1,76 @@
+:root{
+    --titleFamily-- :"Righteous"; 
+    --textSecondary--: "Poppins" serif;
+} 
+@media screen and (max-width: 1000px) {   
+    body{
+        max-width: 768px; ; 
+        overflow-x: hidden;
+    }
+    /*inicio de la barra navbar*/
+    /*accesos directos menu*/   
+    .header{/*conetenedor de la barra de accesos*/
+        justify-content: space-between; 
+        align-items: start; 
+    }  
+    .name{/*titulo de la pagina web */ 
+        display: flex; /*para alinear todo el contenido de manera horizontal */
+    }
+    .menuAccesresponsive{ /*boton para desplegar el menu*/
+        opacity: 1;
+    }
+    .menu{/*navbar caja de botones*/ 
+        display: none;  
+    } 
+    .listAccess{/*lista de botones de acceso*/
+    width: 80%;
+    height: 100%;
+    list-style: none;
+    display: flex; 
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-bottom: .5rem;
+    } 
+    .accessMenu{/*botones directos*/
+        color: rgba(0, 0, 0, 0.804);
+    } 
+    .cartPortable{
+    right: 3rem !important; 
+    bottom: 3rem !important;
+} 
+/*fin del boton del carrito flotante */ 
+/*inicio de los anuncios */ 
+/* .advertisementsGeneral{
+
+}  */
+
+    .miniAdop{ 
+        height: 70%; 
+        width: 60%; 
+    } 
+    .miniAdopCard{
+        display: flex; 
+        justify-content: center;
+        
+}  
+    .aniAdop{ 
+        img{
+            height: 22vh;
+        } 
+    .boxButtons{
+        font-size: 8px;
+    } 
+    
+    } 
+    .titleAccessAdopt{
+        font-size: 18px  ;
+        } 
+
+/*fin de los anuncios */
+/*fin del anuncio*/
+/*fin de la barra navbar*/ 
+/*inicio de boton carrito flotante*/ 
+}
