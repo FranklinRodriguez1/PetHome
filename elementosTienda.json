@@ -116,6 +116,15 @@
     "descuento": 0,
     "categoria": "Gatos", 
     "subcategoria" : "aseo"
+  }, 
+  {
+    "img": "resource/store/Agilitygatitos.jpg",
+    "nombre": "Prueba",
+    "envio_gratis": false,
+    "precio": 45900,
+    "descuento": 0,
+    "categoria": "Gatos",
+    "subcategoria" : "comida"
   }
 ]
 
